@@ -28,8 +28,7 @@ function MainLayout() {
 
 function App() {
   return (
-    // AuthProvider must wrap everything so any component can call useAuth()
-      {/* AppProvider must be inside AuthProvider so it can read currentUser */}
+    <AuthProvider>
       <AppProvider>
         <Router>
           <Routes>
@@ -39,6 +38,7 @@ function App() {
           </Routes>
         </Router>
       </AppProvider>
+    </AuthProvider>
   );
 }
 

@@ -22,8 +22,15 @@ export default function RegisterPage() {
 
     try { 
       // code here
+      await registerUser(email, password);
+      navigate('/login'); //Success -> go sign in
     } catch (err) {
       // Write if/else statements here!
+      if (err.code === 'auth/email-already-in-use'){
+        setError('That email is already registered. Try loggin in.');
+      } else {
+        setError('Something went wrong. Please try again.');
+      }
     }
 
     setLoading(false);

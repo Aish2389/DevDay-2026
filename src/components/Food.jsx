@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from '../contexts/AppContext';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 // Price tier assigned per TheMealDB category
@@ -15,6 +15,8 @@ const INITIAL_CATEGORIES = Object.keys(CATEGORY_PRICES);
 const Food = () => {
   const [foods, setFoods] = useState([]);
   const { favorites, toggleFavorite } = useContext(AppContext);
+  const [allFoods, setAllFoods] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
 
   // Fetch initial menu from TheMealDB on mount
   useEffect(() => {
